@@ -1,0 +1,40 @@
+{
+    "name": "digitalcloud/nova-resource-status",
+    "description": "A Laravel Nova Resource Status.",
+    "keywords": [
+        "Laravel",
+        "Nova",
+		"Resource",
+		"Status"
+    ],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Motaz Marouf",
+            "email": "m.marouf@dce.sa",
+            "homepage": "https://dce.sa",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": ">=7.1.0",
+        "digitalcloud/laravel-blameable": "^1.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "DigitalCloud\\NovaResourceStatus\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "DigitalCloud\\NovaResourceStatus\\ToolServiceProvider"
+            ]
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
