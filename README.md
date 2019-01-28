@@ -27,7 +27,7 @@ Optionally, you can publish the config file:
 php artisan vendor:publish --provider="Digitalcloud\NovaResourceStatus\ToolServiceProvider" --tag=config
 ```
 
-This is the contents of the file which will be published at `config/multilingual.php`
+This is the contents of the file which will be published at `config/nova-resource-status.php`
 
 ```php
 <?php
