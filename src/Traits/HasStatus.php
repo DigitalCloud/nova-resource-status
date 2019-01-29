@@ -28,16 +28,16 @@ trait HasStatus
         )->latest('id');
     }
 
-    public function setStatus(string $name, ?string $reason = null): self
+    public function setStatus(string $status, ?string $note = null): self
     {
-        if (! $this->isValidStatus($name, $reason)) {
-            throw InvalidStatus::create($name);
+        if (! $this->isValidStatus($status, $note)) {
+            throw InvalidStatus::create($status);
         }
 
-        return $this->forceSetStatus($name, $reason);
+        return $this->forceSetStatus($status, $note);
     }
 
-    public function isValidStatus(string $name, ?string $reason = null): bool
+    public function isValidStatus(string $status, ?string $note = null): bool
     {
         return true;
     }
@@ -57,7 +57,7 @@ trait HasStatus
             return $statuses->first();
         }
 
-        return $statuses->whereIn('name', $names)->first();
+        return $statuses->whereIn('status', $names)->first();
     }
 
     public function scopeCurrentStatus(Builder $builder, ...$names)
@@ -68,7 +68,7 @@ trait HasStatus
                 'statuses',
                 function (Builder $query) use ($names) {
                     $query
-                        ->whereIn('name', $names)
+                        ->whereIn('status', $names)
                         ->whereIn(
                             'id',
                             function (QueryBuilder $query) {
@@ -96,7 +96,7 @@ trait HasStatus
                 'statuses',
                 function (Builder $query) use ($names) {
                     $query
-                        ->whereNotIn('name', $names)
+                        ->whereNotIn('status', $names)
                         ->whereIn(
                             'id',
                             function (QueryBuilder $query) use ($names) {
@@ -112,13 +112,13 @@ trait HasStatus
             ->orWhereDoesntHave('statuses');
     }
 
-    public function forceSetStatus(string $name, ?string $reason = null): self
+    public function forceSetStatus(string $status, ?string $note = null): self
     {
         $oldStatus = $this->latestStatus();
 
         $newStatus = $this->statuses()->create([
-            'name'   => $name,
-            'reason' => $reason,
+            'status'   => $status,
+            'note' => $note,
         ]);
 
         event(new StatusUpdated($oldStatus, $newStatus, $this));
