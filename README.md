@@ -12,7 +12,7 @@ composer require digitalcloud/nova-resource-status
 You must publish the migrations file:
 
 ```shell
-php artisan vendor:publish --provider="Digitalcloud\NovaResourceStatus\ToolServiceProvider" --tag=migrations
+php artisan vendor:publish --provider="DigitalCloud\NovaResourceStatus\ToolServiceProvider" --tag=migrations
 ```
 
 Then, migrate the database table:
@@ -24,7 +24,7 @@ php artisan migrate
 Optionally, you can publish the config file:
 
 ```shell
-php artisan vendor:publish --provider="Digitalcloud\NovaResourceStatus\ToolServiceProvider" --tag=config
+php artisan vendor:publish --provider="DigitalCloud\NovaResourceStatus\ToolServiceProvider" --tag=config
 ```
 
 This is the contents of the file which will be published at `config/nova-resource-status.php`
