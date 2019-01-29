@@ -32,7 +32,7 @@
                 <span v-else> {{ field.indexName }} </span>
             </th>
 
-            <th>&nbsp;<!-- View, Edit, Delete --></th>
+
         </tr>
         </thead>
 
