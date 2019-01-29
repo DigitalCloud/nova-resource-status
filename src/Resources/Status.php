@@ -16,7 +16,7 @@ class Status extends Resource {
     public function fields(Request $request)
     {
         return [
-            Text::make('Status', 'name'),
+            Text::make('Status', 'status'),
             Text::make('Date', 'date'),
         ];
     }
