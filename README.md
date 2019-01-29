@@ -102,4 +102,4 @@ class YourResource extends Resource {
 Then, in resource detail page, you can see the history of your resource status.
 
 ## Images
-![status](https://user-images.githubusercontent.com/41853913/51896859-0d8ee780-23b6-11e9-894f-e214382776a6.PNG)
+![status](https://user-images.githubusercontent.com/41853913/51898326-598f5b80-23b9-11e9-89b0-7045ddba7941.PNG)
