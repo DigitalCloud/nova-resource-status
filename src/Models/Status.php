@@ -28,4 +28,8 @@ class Status extends Model
         return $this->created_at? $this->created_at->format('Y-m-d H:i') : '';
     }
 
+    public function getCreatorNameAttribute() {
+        return $this->creator? $this->creator->name?? '' : '';
+    }
+
 }
