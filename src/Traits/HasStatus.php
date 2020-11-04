@@ -1,8 +1,10 @@
 <?php
 
-namespace DigitalCloud\NovaResourceStatus;
+namespace DigitalCloud\NovaResourceStatus\Traits;
 
 use DigitalCloud\NovaResourceStatus\Exceptions\InvalidStatus;
+use DigitalCloud\NovaResourceStatus\StatusObserver;
+use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Eloquent\Builder;
 use DigitalCloud\NovaResourceStatus\Events\StatusUpdated;
@@ -49,7 +51,7 @@ trait HasStatus
      */
     public function latestStatus(...$names): ?Status
     {
-        $names = is_array($names) ? array_flatten($names) : func_get_args();
+        $names = is_array($names) ? Arr::flatten($names) : func_get_args();
 
         $statuses = $this->relationLoaded('statuses') ? $this->statuses : $this->statuses();
 
@@ -62,7 +64,7 @@ trait HasStatus
 
     public function scopeCurrentStatus(Builder $builder, ...$names)
     {
-        $names = is_array($names) ? array_flatten($names) : func_get_args();
+        $names = is_array($names) ? Arr::flatten($names) : func_get_args();
         $builder
             ->whereHas(
                 'statuses',
@@ -90,7 +92,7 @@ trait HasStatus
      **/
     public function scopeOtherCurrentStatus(Builder $builder, ...$names)
     {
-        $names = is_array($names) ? array_flatten($names) : func_get_args();
+        $names = is_array($names) ? Arr::flatten($names) : func_get_args();
         $builder
             ->whereHas(
                 'statuses',
