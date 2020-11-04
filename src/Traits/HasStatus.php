@@ -3,6 +3,7 @@
 namespace DigitalCloud\NovaResourceStatus\Traits;
 
 use DigitalCloud\NovaResourceStatus\Exceptions\InvalidStatus;
+use DigitalCloud\NovaResourceStatus\StatusObserver;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Eloquent\Builder;
