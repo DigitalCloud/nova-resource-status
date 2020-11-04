@@ -1,6 +1,6 @@
 <?php
 
-namespace DigitalCloud\NovaResourceStatus;
+namespace DigitalCloud\NovaResourceStatus\Traits;
 
 use DigitalCloud\NovaResourceStatus\Exceptions\InvalidStatus;
 use Illuminate\Support\Arr;
