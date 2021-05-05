@@ -42,9 +42,9 @@ class Statuses extends Field {
      */
     public $singularLabel;
 
-    public function __construct()
+    public function __construct($name = 'Status Log')
     {
-        parent::__construct('Status Log', 'statuses');
+        parent::__construct($name, 'statuses');
 
         $resource = \DigitalCloud\NovaResourceStatus\Resources\Status::class;
 
